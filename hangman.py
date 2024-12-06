@@ -114,9 +114,10 @@ def handle_guess(guess):
     for index, char in enumerate(split_word):
       if char == guess:
         correct_guess_indices.append(index)
-    if bool(len(correct_guess_indices)):
-      for correct_guess in correct_guess_indices:
-        output_list[correct_guess] = guess
+    for correct_guess in correct_guess_indices:
+      output_list[correct_guess] = guess
+    print('Keep going...')
+
   else:
     print(f"Sorry, but {guess} ain't in this word!\n")
     lives -= 1
@@ -132,9 +133,9 @@ while "_" in output_list and bool(lives):
   handle_guess(guess)
 
 if "_" not in output_list:
-  print(f"Congratulations! {random_word} was the word!!")
+  print(f"Congratulations! {random_word} was the word!!\n")
   print_output()
 else:
   print("Uh oh!!")
   print_output()
-  print(f"The word you were looking for was {random_word}, but you're dead now, so you probably don't care. Bye!")
+  print(f"\nThe word you were looking for was {random_word}, but you're dead now, so you probably don't care. Bye!\n")
